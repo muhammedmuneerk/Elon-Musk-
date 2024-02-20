@@ -469,23 +469,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="row">
 							<div class="form-group col-md-6 ">
 							  <label>Name</label>
-							  <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+							  <input type="text" class="form-control item" id="name" placeholder="Enter Name" name="name">
+							  <div class="error-text"></div>
 							</div>
 							<div class="form-group col-md-6">
 							  <label>Email</label>
-							  <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
+							  <input type="email" class="form-control item" id="email" placeholder="Enter Email" name="email">
+							  <div class="error-text email"></div>
 							</div>
 							<div class="form-group col-md-6">
 							  <label>Phone No.</label>
-							  <input type="text" class="form-control" id="phone" placeholder="Enter Phone no." name="phone">
+							  <input type="text" class="form-control item" id="phone" placeholder="Enter Phone no." name="phone">
+							  <div class="error-text"></div>
 							</div>
 							<div class="form-group col-md-6">
 							  <label>Subject</label>
-							  <input type="text" class="form-control" id="subject" placeholder="Enter Subject" name="phone">
+							  <input type="text" class="form-control item" id="subject" placeholder="Enter Subject" name="phone">
+							  <div class="error-text"></div>
 							</div>
 							<div class="form-group col-12">
 							  <label>Message</label>
-							  <textarea name="issues" class="form-control" id="iq" placeholder="Enter Your Message Here"></textarea>
+							  <textarea name="" class="form-control item" id="message" placeholder="Enter Your Message Here"></textarea>
+							  <div class="error-text"></div>
 							</div>				
 							<button type="submit"  class="btn btn-default">Submit </button>
 						</div>
@@ -546,6 +551,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</a>
 </div>
 <!-- move top -->
-
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1078,5 +1078,39 @@ a.move-top span{
 @media(max-width:320px) {
     
 }
+.field.error .item {
+    border-color: #d93025;
+}
+.field .item::placeholder {
+    color: rgba(225, 225, 225, .3);
+}
+.field .error-text {
+    font-size: 14.5px;
+    color: #d93025;
+    text-align: left;
+    margin: -5px 0 10px;
+    display: none;
+}
+.field.error .error-text {
+    display: block;
+}
+form .textarea-field .item {
+    resize: none;
+}
+form .textarea-field .error-text {
+    margin-top: -10px;
+}
+.field .item {
+    width: 100%;
+    padding: 18px;
+    background: transparent;
+    border: 2px solid #0ef;
+    outline: none;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #ededed;
+    margin: 12px 0;
+
+}
 
 /*-- //responsive design --*/
