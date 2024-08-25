@@ -1,4 +1,4 @@
-const form = document.querySelector("form");
+const form = document.getElementById("contactform");
 const fullName = document.getElementById("name");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
@@ -21,60 +21,38 @@ function sendEmail() {
                     title: "Success!",
                     text: "Message sent successfully!",
                     icon: "success"
-                  });
+                });
             }
         }
     );
 }
 
 function checkInputs() {
-    const items = document.querySelectorAll(".item");
+    const fields = [fullName, email, phone, subject, mess];
 
-    for (const item of items) {
-        if (item.value == "") {
-            item.classList.add("error");
-            item.parentElement.classList.add("error");
+    fields.forEach((field) => {
+        if (field.value.trim() === "") {
+            field.classList.add("error");
+            field.nextElementSibling.innerText = `${field.placeholder} can't be blank`;
+        } else {
+            field.classList.remove("error");
+            field.nextElementSibling.innerText = "";
         }
+    });
 
-        if (items[1].value != "") {
-            checkEmail();
-        }
-
-        items[1].addEventListener("keyup", () => {
-            checkEmail();
-        })
-
-        item.addEventListener("keyup", () => { 
-            if (item.value != "") {
-                item.classList.remove("error");
-                item.parentElement.classList.remove("error");
-            }
-            else {
-                item.classList.add("error");
-                item.parentElement.classList.add("error");
-            }
-        });
-    }
+    checkEmail();
 }
 
 function checkEmail() {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const errorTextEmail = document.querySelector(".error-text.email")
+    const errorTextEmail = document.querySelector(".error-text.email");
 
     if (!email.value.match(emailRegex)) {
         email.classList.add("error");
-        email.parentElement.classList.add("error");
-        
-        if (email.value != "") {
-            errorTextEmail.innerText = "Enter a valid email address";
-        }
-        else {
-            errorTextEmail.innerText = "Email Address Can't be blank";
-        }
-    }
-    else {
+        errorTextEmail.innerText = "Enter a valid email address";
+    } else {
         email.classList.remove("error");
-        email.parentElement.classList.remove("error");
+        errorTextEmail.innerText = "";
     }
 }
 
@@ -82,12 +60,8 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     checkInputs();
 
-    if (!fullName.classList.contains("error") && !email.classList.contains("error") && 
-    !phone.classList.contains("error") && !subject.classList.contains("error") && 
-    !mess.classList.contains("error")) {
+    if (![...form.querySelectorAll(".error")].length) {
         sendEmail();
-
         form.reset();
-        return false;
     }
 });
